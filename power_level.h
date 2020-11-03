@@ -6,10 +6,13 @@ struct z_fighter {
 	char species[256]; 
 	int power_lvl;
 	char hair_color[256];
+
+	struct z_fighter *next;
 };
 
 struct z_fighter * create_z(char *name, char *species, int p_lvl, char *h);
 void print_z(struct z_fighter *);
 void change_z(struct z_fighter *z_f, int p_lvl, char *h);
+void print_list(struct z_fighter *z);
 
 #endif

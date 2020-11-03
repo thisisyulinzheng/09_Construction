@@ -4,24 +4,13 @@
 #include <time.h>
 #include "power_level.h"
 
-int main() {
-	srand(time(NULL));
-	printf("\nBefore Super Saiyan:\n\n");
-	char *name = "Goku";
-	char *species = "Saiyan";
-	int power_level = 9000;
-	char *hair_color = "Black";
-
-	struct z_fighter *Goku = create_z(name, species, power_level, hair_color);
-	print_z(Goku);
-	
-	printf("\nAfter Super Saiyan:\n\n");
-	change_z(Goku, rand(), "Yellow");
-	print_z(Goku);
-
-	printf("\nITS OVER 9000\n");
-
-	free(Goku);
+int main() {	
+	struct z_fighter *Goku = create_z("Goku", "Saiyan", 9000, "Yellow");
+	struct z_fighter *Krillin = create_z("Krillin", "Human", 10, "Black");
+	struct z_fighter *Piccolo = create_z("Piccolo", "Namekian", 5000, "Bald");
+	Goku->next = Krillin;
+	Krillin->next = Piccolo;
+	print_list(Goku);
 
 	return 0;
 }

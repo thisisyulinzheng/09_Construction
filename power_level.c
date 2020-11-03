@@ -23,4 +23,13 @@ void change_z (struct z_fighter *z_f, int p_lvl, char *h) {
   strncpy(z_f->hair_color, h, sizeof(z_f->hair_color)-1);
 }
 
-
+void print_list(struct z_fighter *f) {
+  struct z_fighter *z = f;
+  print_z(f);
+  printf("\n");
+  while (f->next != NULL) {
+    print_z(f->next);
+    printf("\n");
+    f = f->next;
+  }
+}
